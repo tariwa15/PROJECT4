@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Unit Converter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    
+    h1 {
+      text-align: center;
+    }
+    
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    
+    input[type="number"], select {
+      width: 100%;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    
+    .btn {
+      width: 100%;
+      padding: 10px;
+      background-color: #F8C8DC;
+      border: none;
+      border-radius: 4px;
+    }
+    
+    .result {
+      margin-top: 10px;
+      text-align: center;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Unit Converter</h1>
+    
+    <label for="value">Length value (in millimeters):</label>
+    <input type="number" id="value" placeholder="Enter the length value">
+    
+    <button class="btn" onclick="convertLength()">Convert</button>
+    
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function convertLength() {
+      const value = parseFloat(document.getElementById("value").value);
+      
+      if (isNaN(value)) {
+        alert("Please enter a valid length value.");
+        return;
+      }
+      
+      const centimeters = value / 10;
+      const meters = value / 1000;
+      const kilometers = value / 1000000;
+      
+      document.getElementById("result").innerHTML = `
+        ${value} millimeters is equal to:<br>
+        ${centimeters} centimeters<br>
+        ${meters} meters<br>
+        ${kilometers} kilometers
+      `;
+    }
+  </script>
+</body>
+</html>
